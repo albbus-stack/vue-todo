@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    width: 60vw;
+    margin: auto;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    text-align: center;
+    margin-top: 5vh;
+}
+
+#checked {
+    margin-top: .5rem;
+    margin-left: -2rem;
+}
+
+#todo-list {
+    margin-bottom: 2rem;
+}
+
+#inputGroup-sizing-sm {
+    font-size: 1rem;
+}
