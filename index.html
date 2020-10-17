@@ -17,15 +17,15 @@
                     <span class="input-group-text" id="inputGroup-sizing-sm">New Todo</span>
                 </div>
                 <input type="text" v-model="title" class="form-control">
+
                 <button class="btn btn-primary btn-lg ml-4">Create</button>
             </div>
         </form>
         <ul>
             <li v-for="(todo,id) in todos" :key="id">
                 <div class="form-check" id="todo-list">
-                    <input class="form-check-input" type="checkbox" v-model="todo.done" id="checked">
-                    <span id="checkmark"></span>
-                    <label class="form-check-label" for="checked">
+                    <input class="form-check-input" type="checkbox" v-model="todo.done" @click="update(todo)" id="checked">
+                    <label class="form-check-label" for="checked" :id="id">
                         {{todo.title}}
                     </label>
                     <button class="btn btn-danger btn-sm ml-4" @click="deleteToDo(todo)">Delete</button>
