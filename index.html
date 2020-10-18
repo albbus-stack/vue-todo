@@ -40,7 +40,7 @@
                         <span class="pr-3" :class="{ checkedLabel: todo.done }">{{todo.title}}</span>
                     </label>
                         </div>
-                        <span class="delete" @click="deleteToDo(todo)">❌</span>
+                        <span class="delete" @click="deleteToDo(set,todo)">❌</span>
                     </div>
                 </li>
             </ul>

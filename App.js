@@ -27,10 +27,11 @@ var app = new Vue({
             }
             this.title = ""
         },
-        deleteToDo: function(todo) {
-            const i = this.todos.indexOf(todo)
-            this.todos.splice(i, 1)
+        deleteToDo: function(set, todo) {
+            const i = set.todo.indexOf(todo)
+            set.todo.splice(i, 1)
+            this.title = '.'
+            this.title = ''
         },
-
     }
 })
