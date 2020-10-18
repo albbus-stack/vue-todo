@@ -6,34 +6,18 @@ var app = new Vue({
         todos: []
     },
     methods: {
-        createToDo: function(title) {
-            if (title != "") {
+        createToDo: function() {
+            if (this.title != "") {
                 this.todos.push({
-                    id: this.id,
-                    title: title,
+                    title: this.title,
                     done: false
                 })
-                this.id = this.id + 1;
             }
+            this.title = ""
         },
         deleteToDo: function(todo) {
-            for (let i = 0; i < this.todos.length; i++) {
-                if (todo.id == this.todos[i].id) {
-                    this.todos.splice(i, 1)
-                }
-            }
+            const i = this.todos.indexOf(todo)
+            this.todos.splice(i, 1)
         },
-        update: function(todo) {
-            let el = document.getElementById(todo.id)
-            el.style.textDecoration = "none"
-            for (let i = 0; i < this.todos.length; i++) {
-                if (todo.done) {
-                    return true
-                } else {
-                    el.style.textDecoration = "line-through"
-                    return false
-                }
-            }
-        }
     }
 })

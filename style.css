@@ -16,17 +16,29 @@ form {
 
 ul {
     list-style-type: none;
-    text-align: center;
-    margin-top: 5vh;
+    text-align: left;
+    margin-top: 5rem;
+    margin-left: 2rem;
+}
+
+li {
+    margin-bottom: 2rem;
+}
+
+#btn-delete {
+    position: relative;
+    left: 80%;
+    margin-top: -2.9rem;
+}
+
+.checkedLabel {
+    text-decoration: line-through;
+    color: gray;
 }
 
 #checked {
     margin-top: .5rem;
     margin-left: -2rem;
-}
-
-#todo-list {
-    margin-bottom: 2rem;
 }
 
 #inputGroup-sizing-sm {

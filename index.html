@@ -11,7 +11,7 @@
 <body>
     <div id="app">
         <h1 class="mt-5">vue-todo</h1>
-        <form @submit.prevent="createToDo(title)">
+        <form @submit.prevent="createToDo()">
             <div class="input-group input-group-lg mt-5 mb-5">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-sm">New Todo</span>
@@ -22,16 +22,16 @@
             </div>
         </form>
         <ul>
-            <li v-for="(todo,id) in todos" :key="id">
+            <li v-for="todo in todos">
                 <div class="form-check" id="todo-list">
-                    <input class="form-check-input" type="checkbox" v-model="todo.done" @click="update(todo)" id="checked">
-                    <label class="form-check-label" for="checked" :id="id">
-                        {{todo.title}}
+                    <input class="form-check-input" type="checkbox" v-model="todo.done" id="checked">
+                    <label class="form-check-label" for="checked">
+                        <span :class="{ checkedLabel: todo.done }">{{todo.title}}</span>
                     </label>
-                    <button class="btn btn-danger btn-sm ml-4" @click="deleteToDo(todo)">Delete</button>
-                </div>
-            </li>
 
+                </div>
+                <button class="btn btn-outline-danger btn-sm" id="btn-delete" @click="deleteToDo(todo)">Delete</button>
+            </li>
         </ul>
     </div>
     <!--Bootstrap entry point-->
