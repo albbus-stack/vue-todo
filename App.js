@@ -2,16 +2,28 @@ var app = new Vue({
     el: '#app',
     data: {
         title: '',
-        id: 0,
-        todos: []
+        todos: [],
+        setID: '0',
+        sets: []
     },
     methods: {
         createToDo: function() {
             if (this.title != "") {
-                this.todos.push({
+                let i = this.todos.push({
                     title: this.title,
-                    done: false
+                    done: false,
+                    setID: this.setID
                 })
+                let memory = this.sets[this.setID]
+                if (memory === undefined) {
+                    memory = []
+                    memory.todo = []
+                    this.sets[this.setID] = []
+                } else {
+                    memory = this.sets[this.setID].todo
+                }
+                memory.push(this.todos[i - 1])
+                this.sets[this.setID] = { todo: memory, setID: this.setID }
             }
             this.title = ""
         },
@@ -19,5 +31,6 @@ var app = new Vue({
             const i = this.todos.indexOf(todo)
             this.todos.splice(i, 1)
         },
+
     }
 })
