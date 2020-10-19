@@ -12,27 +12,24 @@
 <body>
     <div id="app">
         <h1 class="mt-5">vue-todo</h1>
-        <form @submit.prevent="">
+        <form class="mb-5" @submit.prevent="">
             <div class="input-group input-group-lg mt-5 mb-5">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-sm">New Todo</span>
                 </div>
                 <input type="text" v-model="title" class="form-control">
-
                 <select class="custom-select" v-model="setID">
-                    <option value="0">Zero</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      <option v-for="set in sets" :key="set.setAlias" :value="set.setID">{{set.setAlias}}</option>
                     </select>
 
                 <button class="btn btn-primary btn-lg ml-4" @click="createToDo()">Create</button>
                 <button class="btn btn-warning btn-md ml-4" @click="createSet()">New set</button>
+                <input type="text" class="newSetInput" style="">
             </div>
         </form>
         <div class="d-flex justify-content-around">
-            <ul v-for="set in sets">
-                <input type="text" v-model="set.setID">
+            <ul v-for="set in sets" :class="set.setID">
+                <input class="setNum" type="text" placeholder="Category..." v-model="set.setAlias" @change="updateAlias(set)">
                 <li v-for="todo in set.todo">
                     <div class="d-flex justify-content-between">
                         <div class="form-check" id="todo-list">

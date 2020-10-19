@@ -15,9 +15,12 @@ form {
 }
 
 ul {
+    display: flex;
+    flex-flow: column wrap;
     list-style-type: none;
     padding-inline-start: 1rem;
     padding-inline-end: 1rem;
+    align-items: center;
 }
 
 li {
@@ -29,11 +32,35 @@ li {
     color: gray;
 }
 
+.newSetInput {
+    width: 5rem;
+    display: none;
+    position: absolute;
+    text-align: center;
+    align-self: flex-end;
+    left: 85.4%;
+    top: 110%;
+}
+
 .delete {
     font-size: .8rem;
     text-align: center;
     margin-top: .3rem;
     cursor: pointer;
+}
+
+.setNum {
+    width: 6rem;
+    border: hidden;
+    text-align: center;
+    font-weight: 900;
+    margin-right: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.setNum::placeholder {
+    color: rgb(163, 163, 163);
+    opacity: 0.5;
 }
 
 #checked {

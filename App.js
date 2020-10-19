@@ -3,8 +3,15 @@ var app = new Vue({
     data: {
         title: '',
         todos: [],
-        setID: '0',
-        sets: []
+        setID: 0,
+        lastID: 0,
+        setAlias: '',
+        dropdownKey: 0,
+        sets: [{
+            todo: [],
+            setID: 0,
+            setAlias: 'init'
+        }]
     },
     methods: {
         createToDo: function() {
@@ -23,9 +30,10 @@ var app = new Vue({
                     memory = this.sets[this.setID].todo
                 }
                 memory.push(this.todos[i - 1])
-                this.sets[this.setID] = { todo: memory, setID: this.setID }
+                this.sets[this.setID] = { todo: memory, setID: this.setID, setAlias: this.sets[this.setID].setAlias }
             }
             this.title = ""
+            document.getElementsByClassName(this.setID.toString().concat(' setNum')).value = this.setAlias
         },
         deleteToDo: function(set, todo) {
             const i = set.todo.indexOf(todo)
@@ -33,5 +41,29 @@ var app = new Vue({
             this.title = '.'
             this.title = ''
         },
+        createSet: function() {
+            if (document.querySelector('.newSetInput').style.display === '' || document.querySelector('.newSetInput').style.display === 'none') {
+                document.querySelector('.newSetInput').style.display = 'unset'
+                document.querySelector('.newSetInput').focus()
+            } else {
+                document.querySelector('.newSetInput').style.display = 'none'
+                if (document.querySelector('.newSetInput').value !== '') {
+                    this.sets.push({
+                        todo: [],
+                        setID: this.lastID + 1,
+                        setAlias: document.querySelector('.newSetInput').value
+                    })
+                    this.lastID = this.lastID + 1
+                    document.querySelector('.newSetInput').value = ''
+                }
+            }
+        },
+        updateAlias: function(set) {
+            set.setAlias = document.getElementsByClassName(this.setID.toString().concat(' setNum')).value
+            this.forceDropdownRender()
+        },
+        forceDropdownRender: function() {
+            this.dropdownKey = !this.dropdownKey
+        }
     }
 })
