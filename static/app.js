@@ -59,11 +59,13 @@ var app = new Vue({
             }
         },
         updateAlias: function(set) {
-            set.setAlias = document.getElementsByClassName(this.setID.toString().concat(' setNum')).value
+            const el = document.getElementsByClassName(this.setID.toString().concat(' setNum'))
+            el.onchange = function() { set.setAlias = el.value }
+            this.$forceUpdate();
             this.forceDropdownRender()
         },
         forceDropdownRender: function() {
-            this.dropdownKey = !this.dropdownKey
+            this.dropdownKey += 1
         }
     }
 })
