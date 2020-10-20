@@ -9,4 +9,5 @@ router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+app.use('/', router);
 app.listen(process.env.port || 8080);
