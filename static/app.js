@@ -48,13 +48,17 @@ var app = new Vue({
             } else {
                 document.querySelector('.newSetInput').style.display = 'none'
                 if (document.querySelector('.newSetInput').value !== '') {
+                    this.lastID = this.lastID + 1
                     this.sets.push({
                         todo: [],
-                        setID: this.lastID + 1,
+                        setID: this.lastID,
                         setAlias: document.querySelector('.newSetInput').value
                     })
-                    this.lastID = this.lastID + 1
                     document.querySelector('.newSetInput').value = ''
+                    var n = this.lastID
+                    setTimeout(function() {
+                        document.getElementById('sel').getElementsByTagName('option')[n].selected = 'true'
+                    }, 1);
                 }
             }
         },

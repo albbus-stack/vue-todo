@@ -18,10 +18,9 @@
                     <span class="input-group-text" id="inputGroup-sizing-sm">New Todo</span>
                 </div>
                 <input type="text" v-model="title" class="form-control">
-                <select class="custom-select" v-model="setID">
+                <select class="custom-select" v-model="setID" id="sel">
                       <option v-for="set in sets" :key="set.setAlias" :value="set.setID">{{set.setAlias}}</option>
-                    </select>
-
+                </select>
                 <button class="btn btn-primary btn-lg ml-4" @click="createToDo()">Create</button>
                 <button class="btn btn-warning btn-md ml-4" @click="createSet()">New set</button>
                 <input type="text" class="newSetInput" style="">
