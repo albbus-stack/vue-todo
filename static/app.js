@@ -65,6 +65,9 @@ var app = new Vue({
             this.$forceUpdate();
             this.forceDropdownRender()
         },
+        blurInput: function() {
+            $('.setNum').blur();
+        },
         forceDropdownRender: function() {
             this.dropdownKey += 1
         }

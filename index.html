@@ -23,12 +23,12 @@
                 </select>
                 <button class="btn btn-primary btn-lg ml-4" @click="createToDo()">Create</button>
                 <button class="btn btn-warning btn-md ml-4" @click="createSet()">New set</button>
-                <input type="text" class="newSetInput" style="">
+                <input type="text" class="newSetInput" @keyup.enter="createSet()" style="">
             </div>
         </form>
         <div class="d-flex justify-content-around">
             <ul v-for="set in sets" :class="set.setID">
-                <input class="setNum" type="text" placeholder="Set title..." v-model="set.setAlias" @input="updateAlias(set)">
+                <input class="setNum" type="text" placeholder="Set title..." v-model="set.setAlias" @input="updateAlias(set)" @keyup.enter="blurInput()">
                 <li v-for="todo in set.todo">
                     <div class="d-flex justify-content-between">
                         <div class="form-check" id="todo-list">
