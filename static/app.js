@@ -55,10 +55,7 @@ var app = new Vue({
                         setAlias: document.querySelector('.newSetInput').value
                     })
                     document.querySelector('.newSetInput').value = ''
-                    var n = this.lastID
-                    setTimeout(function() {
-                        document.getElementById('sel').getElementsByTagName('option')[n].selected = 'true'
-                    }, 1);
+                    this.setID = this.lastID
                 }
             }
         },
