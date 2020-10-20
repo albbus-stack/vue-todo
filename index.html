@@ -29,7 +29,7 @@
         </form>
         <div class="d-flex justify-content-around">
             <ul v-for="set in sets" :class="set.setID">
-                <input class="setNum" type="text" placeholder="Category..." v-model="set.setAlias" @change="updateAlias(set)">
+                <input class="setNum" type="text" placeholder="Category..." v-model="set.setAlias" @input="updateAlias(set)">
                 <li v-for="todo in set.todo">
                     <div class="d-flex justify-content-between">
                         <div class="form-check" id="todo-list">

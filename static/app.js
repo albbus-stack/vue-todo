@@ -60,7 +60,7 @@ var app = new Vue({
         },
         updateAlias: function(set) {
             const el = document.getElementsByClassName(this.setID.toString().concat(' setNum'))
-            el.onchange = function() { set.setAlias = el.value }
+            el.oninput = function() { set.setAlias = el.value }
             this.$forceUpdate();
             this.forceDropdownRender()
         },
