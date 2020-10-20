@@ -10,7 +10,7 @@ var app = new Vue({
         sets: [{
             todo: [],
             setID: 0,
-            setAlias: 'init'
+            setAlias: ''
         }]
     },
     methods: {
