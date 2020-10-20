@@ -10,4 +10,5 @@ router.get('/', function(req, res) {
 });
 
 app.use('/', router);
-app.listen(process.env.port || 8080);
+app.set('port', process.env.PORT || 3000);
+app.listen(app.get('port'), () => console.log(`Node server listening on port ${app.get('port')}!`));
