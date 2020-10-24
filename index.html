@@ -4,6 +4,7 @@
 <head>
     <title>vue-todo</title>
     <script src="https://unpkg.com/vue"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="static/style.css">
     <meta charset="UTF-8">
@@ -18,17 +19,18 @@
                     <span class="input-group-text" id="inputGroup-sizing-sm">New Todo</span>
                 </div>
                 <input type="text" v-model="title" class="form-control">
-                <select class="custom-select" v-model="setID" id="sel">
+                <select class="custom-select" v-model="setID">
                       <option v-for="set in sets" :key="set.setAlias" :value="set.setID">{{set.setAlias}}</option>
-                </select>
+                    </select>
+
                 <button class="btn btn-primary btn-lg ml-4" @click="createToDo()">Create</button>
                 <button class="btn btn-warning btn-md ml-4" @click="createSet()">New set</button>
-                <input type="text" class="newSetInput" @keyup.enter="createSet()" style="">
+                <input type="text" class="newSetInput" style="">
             </div>
         </form>
         <div class="d-flex justify-content-around">
             <ul v-for="set in sets" :class="set.setID">
-                <input class="setNum" type="text" placeholder="Set title..." v-model="set.setAlias" @input="updateAlias(set)" @keyup.enter="blurInput()">
+                <input class="setNum" type="text" placeholder="Category..." v-model="set.setAlias" @change="updateAlias(set)">
                 <li v-for="todo in set.todo">
                     <div class="d-flex justify-content-between">
                         <div class="form-check" id="todo-list">

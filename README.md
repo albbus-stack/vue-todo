@@ -1,6 +1,6 @@
 # vue-todo
 [![GPLv3 License](https://img.shields.io/badge/%20License-GPL%20v3-yellow?style=flat-square)](https://opensource.org/licenses/)
-[![Vue](https://img.shields.io/badge/-Vue.js-success?style=flat-square)](https://github.com/plotly)
+[![Vue](https://img.shields.io/badge/-Vue.js-success?style=flat-square)](https://github.com/vuejs/vue)
 
 Simple todo web app made with [vue.js](https://github.com/vuejs/vue), you can see the result on https://vue-simple-todo.herokuapp.com/.
 
